@@ -325,3 +325,137 @@
     clip: rect(7px, 9999px, 78px, 0);
   }
 }
+
+@keyframes pulse {
+  0% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 1px rgba(59, 130, 246, 0.3), 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 2px rgba(59, 130, 246, 0.4), 0 0 4px rgba(59, 130, 246, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 1px rgba(59, 130, 246, 0.3), 0 0 2px rgba(59, 130, 246, 0.2);
+  }
+}
+
+.dot-blue {
+  animation: pulse 4s infinite, glow 3s infinite;
+}
+
+.dot-white {
+  animation: pulse 5s infinite;
+}
+
+.digital-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+.time-display {
+  text-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+  letter-spacing: 1px;
+}
+
+@keyframes lineGlow {
+  0% {
+    opacity: 0.2;
+    stroke-width: 0.5;
+  }
+  50% {
+    opacity: 0.4;
+    stroke-width: 0.8;
+  }
+  100% {
+    opacity: 0.2;
+    stroke-width: 0.5;
+  }
+}
+
+.connection-line {
+  animation: lineGlow 3s infinite;
+}
+
+/* Dot Matrix Background Animations */
+.dot-muted {
+  box-shadow: 0 0 1px rgba(150, 150, 150, 0.3);
+}
+
+.dot-blue {
+  box-shadow: 0 0 2px rgba(59, 89, 152, 0.5);
+}
+
+.connection-line {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: dash 3s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Data Packet Animations */
+.data-packet {
+  filter: drop-shadow(0 0 2px currentColor);
+  animation: subtlePulse 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes subtlePulse {
+  0% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 1px currentColor);
+  }
+  100% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3px currentColor);
+  }
+}
+
+/* Glowing trail effect for data packets */
+.data-packet-trail {
+  animation: fadeTrail 1s linear forwards;
+}
+
+@keyframes fadeTrail {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Pulse effect when data arrives at destination */
+@keyframes dataPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.data-arrival {
+  animation: dataPulse 0.8s ease-out forwards;
+}
